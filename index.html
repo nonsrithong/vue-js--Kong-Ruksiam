@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js - tutorial</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+
+        Name:<input type="text" v-model="name">
+        Food Fav:
+        <input type="checkbox" value="ส้มตำ" v-model="foods">
+        <label>ส้มตำ</label>
+        <input type="checkbox" value="มาม่า" v-model="foods">
+        <label>มาม่า</label>
+        <br>
+        Gender:
+        <br>
+        <input type="radio" value="Male" v-model ="gender">
+        <label for="">Male</label>
+        <br>
+        <input type="radio" name="" id="" value="Female" v-model = "gender">
+        <label for="">Female</label>
+        <br>
+
+        <h1>Name:{{name}}</h1>
+        <h1>Age : {{age}}</h1>
+
+        <h1>Websit: <a v-bind:href="website">click link</a></h1>
+
+
+
+        <input type="text" v-on:keyup.tab="addCount">
+        <h1>Count:{{count}}</h1>
+
+        <input type="text" name="" v-bind:value="name">
+
+        <input type="text" name="" v-bind:value="job"></br></br>
+        <button type="button" v-on:click="addAge">Add</button>
+        <button type="button" v-on:click="SubtractAge">subtract</button>
+        <h1>{{foods}}</h1>
+        <h1>{{gender}}</h1>
+
+    </div>
+
+
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
