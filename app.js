@@ -2,7 +2,7 @@ new Vue({
     el: "#vue-app",
     data: {
         name: "Nonny",
-        job: "คนบ้า",
+        job: "",
         age: 22,
         website:'https://www.google.com/'
 ,
