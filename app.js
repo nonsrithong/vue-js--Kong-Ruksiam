@@ -1,49 +1,70 @@
 new Vue({
     el: "#vue-app",
     data: {
-        name: "Nonny",
-        job: "",
-        age: 22,
-        website:'https://www.google.com/'
-,
-        count:0,
-        foods:[],
-        gender:''
+
+        newData: {
+
+            empName: '',
+            salary: 0
+        },
+        empGroup: [
+            {
+                empName: "non",
+                salary: 5000
+            },
+            {
+                empName: "non2",
+                salary: 1000
+            }
+        ]
 
     },
     methods: {
 
-        getName: function () {
+        addEmp: function () {
 
-            return this.name
-        },
-        setName: function (p_name) {
-            return this.name = p_name
-
-        }
-            ,
-        addAge:function(){
-            this.age++;
-            console.log(this.age);
+            this.empGroup.push({
+                empName: this.newData.empName,
+                salary: this.newData.salary
+            })
+            this.newData.empName = '';
+            this.newData.salary = 0;
 
         },
-        SubtractAge:function(){
-            
-            this.age--;
-            console.log(this.age)
 
-        }
-        ,
+        showMessage: function(){
 
-        addCount:function(){
-            this.count++;
-            console.log(this.age);
+            alert("บันทุึกข้อมูลเรียบร้อย");
 
+    
         }
 
-       
+    },
+    
+    
+    computed :{
+summation:function(){
+    //แยกมาจัดการด้านการคำนวณ ไม่สามารถส่ง param เข้ามาได้
+    var sum = this.empGroup.reduce(function(value,data){
+        return value+Number(data.salary);
+    },0);
+    return sum;
+},
+avg : function(){
+    var sum = this.empGroup.reduce(function(value,data){
 
+        return  value+Number(data.salary);
+
+    },0);
+    return sum/this.empGroup.length;
+
+}
+
+    },
+    // หลังจากทำงาน function.. ให้ทำอะไรต่อ
+    watch:{
+        summation:function(){
+            this.showMessage();
+        }
     }
-
-
 })

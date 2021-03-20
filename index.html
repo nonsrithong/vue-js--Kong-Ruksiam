@@ -13,53 +13,27 @@
 <body>
     <div id="vue-app">
 
-        Name:<input type="text" v-model="name">
-        Food Fav:
-        <input type="checkbox" value="ส้มตำ" v-model="foods">
-        <label>ส้มตำ</label>
-        <input type="checkbox" value="มาม่า" v-model="foods">
-        <label>มาม่า</label>
+        ชื่อพนักงาน
+        <input v-model="newData.empName">
+        <span>เงินเดือน</span>
+        <input v-model="newData.salary">
+        <br><br>
+
+        <button @click="addEmp">บันทึกข้อมูล</button>
         <br>
-        Gender:
-        <br>
-        <input type="radio" value="Male" v-model ="gender">
-        <label for="">Male</label>
-        <br>
-        <input type="radio" name="" id="" value="Female" v-model = "gender">
-        <label for="">Female</label>
-        <br>
-        Job:
-            <select v-model="job">
-                <option disabled=""> กรุณาเลือกอาชีพของคุณ</option>
-                <option >โปรแกรมเมอร์</option>
-                <option >พ่อค้า</option>
-                <option >นิสิต นักศึกษา</option>
+        <ul>
+            <li v-for ="emp in empGroup">
+                {{emp.empName}} ได้เงินเดือน {{emp.salary}}
+            </li>
+           
+        </ul>
 
+        <h1>จำนวนเงินที่ต้องจ่ายพนักงาน : {{summation}}</h1>
+        <h1>จำนวนเงินเฉลี่ยน:{{avg}}</h1>
+    
+   
 
-            </select>
-            <h1>อาชีพ:{{job}}</h1>
-
-
-
-          
-        <h1>Name:{{name}}</h1>
-        <h1>Age : {{age}}</h1>
-
-        <h1>Websit: <a v-bind:href="website">click link</a></h1>
-        
-
-
-
-        <input type="text" v-on:keyup.tab="addCount">
-        <h1>Count:{{count}}</h1>
-
-        <input type="text" name="" v-bind:value="name">
-
-      
-        <button type="button" v-on:click="addAge">Add</button>
-        <button type="button" v-on:click="SubtractAge">subtract</button>
-        <h1>{{foods}}</h1>
-        <h1>{{gender}}</h1>
+       
 
     </div>
 
